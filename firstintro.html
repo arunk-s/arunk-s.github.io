@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My crossroads and encounters, ">
+
+
+        <title>Moving on to linux: Part 1 // My crossroads and encounters // </title>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://arunk-s.github.io/theme/css/pure.css">
+    <link rel="stylesheet" href="http://arunk-s.github.io/theme/css/pygments.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").fitVids();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="pure-g-r" id="layout">
+        <div class="sidebar pure-u">
+            <div class="cover-img" style="background-image: url('http://i.imgur.com/jGxiPTB.jpg')">
+                <div class="cover-body">
+                    <header class="header">
+                        <hgroup>
+                            <h1 class="brand-main"><a href="/">My crossroads and encounters</a></h1>
+                            <p class="tagline"></p>
+                                <p class="links"><a href="http://arunk-s.github.io/archives.html">Archive</a></p>
+                                <p class="links"><a href="http://arunk-s.github.io/pages/about-me.html">About Me</a></p>
+                                <p class="social">
+                                    <a href="http://www.facebook.com/arun.sori/">
+                                        <i class="fa fa-facebook fa-3x"></i>
+                                    </a>
+                                    <a href="http://www.github.com/arunk-s/">
+                                        <i class="fa fa-github fa-3x"></i>
+                                    </a>
+                                <p>
+                        </hgroup>
+                    </header>
+                </div>
+            </div>
+        </div>
+    <div class="pure-u">
+        <div class="content">
+            <section class="post">
+                <header class="post-header">
+                    <h1>Moving on to linux: Part 1</h1>
+                        <p class="post-meta">
+                            // under                                 <a class="post-category" href="http://arunk-s.github.io/tag/linux.html">linux</a>
+                                <a class="post-category" href="http://arunk-s.github.io/tag/tips.html">tips</a>
+                                <a class="post-category" href="http://arunk-s.github.io/tag/tech.html">tech</a>
+                        </p>
+                </header>
+            </section>
+            <p>Linux distributions seem to caught the fancies of everyone, but most of my friends are too afraid or anxious to try it and may be you are too. Some of those who use it are tagged as a bearded nerd, weirdo etc.<br />
+So I decided to write this blog post describing my first experiences with Linux which might give the people wanting to try it an upperhand. By the way here by Linux I mean the whole distribution not just the kernel unless I specifically say so.</p>
+<p>Linux is not scary it's just a little different the way it works and you will love it for that.   <br />
+Web is filled with a lot of details about <a href="http://www.linux.org/threads/what-is-linux.4076/">what Linux</a> <a href="https://en.wikipedia.org/wiki/Linux">is</a>, <a href="http://www.whylinuxisbetter.net/">why you</a> <a href="http://lifehacker.com/5772574/getting-started-with-linux-why-install-linux">should</a> <a href="http://lxer.com/module/newswire/view/166709/">use</a> <a href="http://www.getgnulinux.org/en/linux/">Linux</a>, <a href="https://en.wikipedia.org/wiki/Comparison_of_operating_systems">what are the differences</a> etc. A lot has been already written on <a href="http://www.techradar.com/news/software/operating-systems/beginner-s-guide-to-linux-where-to-start-1066778">how</a> <a href="http://lifehacker.com/5778882/getting-started-with-linux-the-complete-guide">to start with</a> linux it by people more qualified and experienced than me.</p>
+<p>I won't be reinventing the wheel again but I will tell you about the things to care for so you can avoid the trenches that I fell for.</p>
+<p><img alt="From XKCD" src="http://imgs.xkcd.com/comics/cautionary.png" title="Caution" /></p>
+<p>I saw the first pc running linux way back in 2009 when I was in highschool. It was running ubuntu 9.04 which was gaining quite a rep at that time. It was the first time I saw an OS other than some variant of Windows. I fell in love with it that very moment.
+I had a desktop with 2 gigs of RAM and an intel dual core processor. It ran the obvious OS at that time Windows Xp. I used to tweak it frequently with bootskins, theme packages and all. But it crashes ocassionaly as one thing doesn't play well with the others. Pendrives were quite a phenomenon back then. One thing lead to another and came the problem of viruses. The solution everyone suggested is a paid antivirus software and I am not likely to give money for that (or for most things nowadays!).<br />
+Also they require certain updates at regular interval that needs internet which was a luxury for me. So I jumped here and there to look for updates. It was quite cumbersome to do such things; scan pendrives everytime, update the antivirus, license errors and what not. My system often ran into frequent crashes and I had to format it everytime I get viruses despite of those antiviruses.  </p>
+<p><img alt="From XKCD" src="http://imgs.xkcd.com/comics/linux_user_at_best_buy.png" title="Hell yeah" /> </p>
+<p>Maybe I wasn't good at keeping my system healthy at that time but that didn't matter. So I got the advice of installing linux. I saw some guy working on it, brushing off on command line. I was mesmerized by it..the shell, window decorations, style etc. 
+So I gave it a try. No more regular scanning, freeing space, deleting old files, defragmenting. Much less RAM usage and more focus on running apps. Now I can work and so I never look back.</p>
+<p>The first thing you want to know beforehand is to learn some basic commands. Nowadays most distributions are pretty smart and you won't need to use any commands but learning them will not cause you any harm. Moreover when you will learn them I am sure you will try to use it one way or another. Don't worry they are not so tough and hard to remember, I find them very interesting and <a href="http://www.tecmint.com/20-funny-commands-of-linux-or-linux-is-fun-in-terminal/">fun</a>. You will be amazed at the power of commandline so use them carefully. They will give you more control over your OS and will improve your workflow. When I first installed linux I just knew few commands which I learnt while overlooking the guy that gave me my first copy of Ubuntu. Since that day I keep discovering more and more of them.<br />
+Some resources you can start with:</p>
+<ul>
+<li><a href="https://en.wikibooks.org/wiki/Linux_For_Newbies/Command_Line">https://en.wikibooks.org/wiki/Linux_For_Newbies/Command_Line</a></li>
+<li><a href="http://linuxcommand.org/tlcl.php">http://linuxcommand.org/tlcl.php</a></li>
+<li><a href="https://github.com/WilliamHackmore/linuxgems/blob/master/cheat_sheet.org.sh">https://github.com/WilliamHackmore/linuxgems/blob/master/cheat_sheet.org.sh</a></li>
+</ul>
+<p><img alt="From XKCD" src="http://imgs.xkcd.com/comics/tar.png" title="So much practice!" /></p>
+<p>Time for a pause now but I will continue this in the next post.  </p>
+<p>Till then,
+Happy Hacking!</p>
+            <a href="#" class="go-top">Go Top</a>
+    <div class="comments">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = "mycrossroadsandencounters"; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+<footer class="footer">
+    <p>&copy; Arun &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure-single">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+</footer>        </div>
+    </div>
+    </div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+
+</body>
+</html>
