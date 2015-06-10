@@ -151,6 +151,8 @@ _vis_opt_queue.push(function (_vis_id, callback) {
               type: _vwo_exp[_vis_id].type,
               combination_chosen: _vwo_exp[_vis_id].comb_n[_vis_combination]
             };
+            ga && ga('set','dimension1', 'CampID:'+_vis_id +', ' + 'VarName:'+_vwo_exp[_vis_id].comb_n[_vis_combination]);
+            ga && ga('send', 'pageview')
             console.log(_vis_data['VWO-Test-ID-' + _vis_id]);
             _vis_counter++;
           }
@@ -171,9 +173,10 @@ _vis_opt_queue.push(function (_vis_id, callback) {
                 type: _vwo_exp[_vis_id].type,
                 combination_chosen: _vwo_exp[_vis_id].comb_n[_vis_combination]
               };
-              console.log(_vis_data['VWO-Test-ID-' + _vis_id]);
-              ga && ga('set','dimension1',{ CampID: _vis_id , VarName: _vwo_exp[_vis_id].comb_n[_vis_combination] })
-              _vis_counter++;
+            ga && ga('set','dimension1', 'CampID:'+_vis_id +', ' + 'VarName:'+_vwo_exp[_vis_id].comb_n[_vis_combination]);
+            ga && ga('send', 'pageview')
+            console.log(_vis_data['VWO-Test-ID-' + _vis_id]);
+            _vis_counter++;
             }
           }
         }
