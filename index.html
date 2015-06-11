@@ -134,62 +134,66 @@ use_existing_jquery=false,
 // DO NOT EDIT BELOW THIS LINE
 f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init(); 
 
-var _vis_opt_queue = window._vis_opt_queue || [], _vis_counter = 0 ;
-_vis_opt_queue.push(function (_vis_id, callback) {
-  try {
-    if (!_vis_counter) {
-      if (typeof (_vis_id) != 'undefined') {
-        var _vis_data = {},_vis_combination;
-        if (_vwo_exp[_vis_id].ready) {
-          _vis_combination = _vis_opt_readCookie('_vis_opt_exp_' + _vis_id + '_combi');
-          if (typeof (_vwo_exp[_vis_id].combination_chosen) != 'undefined')
-          _vis_combination = _vwo_exp[_vis_id].combination_chosen;
-          if (typeof (_vwo_exp[_vis_id].comb_n[_vis_combination]) != 'undefined') {
-            _vis_data['VWO-Test-ID-' + _vis_id] = {
-              id: _vis_id,
-              name: _vwo_exp[_vis_id].name,
-              type: _vwo_exp[_vis_id].type,
-              combination_chosen: _vwo_exp[_vis_id].comb_n[_vis_combination]
-            };
-            ga && ga('set','dimension1', 'CampID:'+_vis_id +', ' + 'VarName:'+_vwo_exp[_vis_id].comb_n[_vis_combination]);
-            ga && ga('send', 'pageview')
-            console.log(_vis_data['VWO-Test-ID-' + _vis_id]);
-            _vis_counter++;
-          }
-        }
-      } else {
-        var _vis_data = {},
-        _vis_combination,_vis_id,_vis_l = 0;
+var get_compaigns_data = function (callback,vis_id) {
+  var _vis_opt_queue = window._vis_opt_queue || [],_vis_counter = 0;
+  _vis_opt_queue.push(function () {
+    try {
+      if (!_vis_counter) {
+        var _vis_data = [],_vis_combination,_vis_id,_vis_l = 0;
+        var bool = false;
         for (; _vis_l < _vwo_exp_ids.length; _vis_l++) {
           _vis_id = _vwo_exp_ids[_vis_l];
+          // console.log("determined _vis_id "+_vis_id);
+          if (typeof (vis_id) != 'undefined') {
+            _vis_id = vis_id;
+            bool = true;
+          }
           if (_vwo_exp[_vis_id].ready) {
             _vis_combination = _vis_opt_readCookie('_vis_opt_exp_' + _vis_id + '_combi');
             if (typeof (_vwo_exp[_vis_id].combination_chosen) != 'undefined')
             _vis_combination = _vwo_exp[_vis_id].combination_chosen;
             if (typeof (_vwo_exp[_vis_id].comb_n[_vis_combination]) != 'undefined') {
-              _vis_data['VWO-Test-ID-' + _vis_id] = {
+              
+              _vis_data.push({
                 id: _vis_id,
                 name: _vwo_exp[_vis_id].name,
                 type: _vwo_exp[_vis_id].type,
                 combination_chosen: _vwo_exp[_vis_id].comb_n[_vis_combination]
-              };
-            ga && ga('set','dimension1', 'CampID:'+_vis_id +', ' + 'VarName:'+_vwo_exp[_vis_id].comb_n[_vis_combination]);
-            ga && ga('send', 'pageview')
-            console.log(_vis_data['VWO-Test-ID-' + _vis_id]);
-            _vis_counter++;
+              });
+              console.log(_vis_data);
+              _vis_counter++;
+              if (bool) {
+                break;
+              }
             }
           }
         }
+        // Use the _vis_data object created above to fetch the data,
+        // key of the object is the Test ID and the value is Variation Name
       }
-      // Use the _vis_data object created above to fetch the data, 
-      // key of the object is the Test ID and the value is Variation Name
+      if(_vis_counter){
+        // console.log(callback)
+        callback && callback(_vis_data);
+      }
+    } 
+    catch (err) {
+    };
+  })
 
-      callback && callback(_vis_data);
+}
+
+var call_ga_custom = function (_vis_data){
+    var _vis_l=0;
+    for(;_vis_l < _vis_data.length;_vis_l++) {
+        var _vis_id = _vis_data[_vis_l].id, _combination_chosen = _vis_data[_vis_l].combination_chosen ;
+        console.log(_vis_id, _combination_chosen);
+        ga && ga('set', 'dimension1', 'CampID:' + _vis_id + ', ' + 'VarName:' + _combination_chosen );
+        console.log("calling ga")
+        ga && ga('send', 'pageview')        
     }
-  } 
-  catch (err) {
-  };
-})
+}
+
+get_compaigns_data(call_ga_custom);
 </script>
 
 </body>
